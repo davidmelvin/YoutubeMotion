@@ -8,11 +8,15 @@
         <script src="js/leap.js"></script>
 	</head>
     <body>
-        <h1><span id="youtube-header">YouTube</span> <span id="motion-header">Motion</span></h1>
-        <div id="search">
-            <input type="text" id="inputtext"/>
-            <input type="submit" onclick="getOption()" />
-        </div>
-        <div id="player"></div>
+        <center>
+            <h1><span id="youtube-header">YouTube</span> <span id="motion-header">Motion</span></h1>
+            <div id="search">
+                
+                    <input type="text" id="inputtext" onkeydown="pseudoSubmit()" />
+                    <input id="submit"type="submit" onclick="getOption()" />
+               
+            </div>
+            <div id="player"></div>
+        </center>
     </body>
 </html>
