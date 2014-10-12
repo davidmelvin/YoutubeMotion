@@ -12,8 +12,8 @@
             <h1><span id="youtube-header">YouTube</span> <span id="motion-header">Motion</span></h1>
             <div id="search">
                 
-                    <input type="text" id="inputtext" onkeydown="pseudoSubmit()" />
-                    <input id="submit"type="submit" onclick="getOption()" />
+                    <input type="text" id="inputtext" onkeydown="if (event.keyCode == 13) document.getElementById('submit').click()" />
+                    <input id="submit" type="submit" onclick="getOption()" />
                
             </div>
             <div id="player"></div>
