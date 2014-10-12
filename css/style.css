@@ -1,12 +1,12 @@
 body{
-    background-color: #ecf0f1;
+    background-color: #bdc3c7;
 }
 h1{
     text-align: center;
     font-size: 4em;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
-
+    margin-bottom: .4em;
 }
 
 input{
@@ -16,7 +16,9 @@ input{
 input[type="text"]{
     width:25em;
 }
-
+#search{
+    margin-bottom: 1em;
+}
 #youtube-header{
     text-shadow: -1px 3px 6px rgba(150, 150, 150, 1);
 }
