@@ -46,3 +46,11 @@ background-image: -webkit-linear-gradient(top, #E52D27 0%, #B31217 100%);
 /* W3C Markup, IE10 Release Preview */ 
 background-image: linear-gradient(to bottom, #E52D27 0%, #B31217 100%);
 }
+
+#instructions {
+    margin: 0 auto;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    list-style-position: inside;
+}
