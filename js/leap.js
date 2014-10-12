@@ -12,18 +12,23 @@ var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
-        width: '640'
+        width: '640',
+        events: {
+            'onReady': getOption
+        }
     });
 }
 
 function getOption() {
     var searchBox = document.getElementById("inputtext");
     var searchText = searchBox.value;
-    var videoID = searchText.substring(32);
+    if (searchText.length > 0) {
+        var videoID = searchText.substring(32);
 
-    console.log(videoID)
+        console.log(videoID)
 
-    player.loadVideoById(videoID)
+        player.loadVideoById(videoID)
+    }
 }
 
 var pause = false;
