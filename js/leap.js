@@ -12,13 +12,12 @@ function onYouTubeIframeAPIReady() {
         width: '640',
         videoId: 'OVMuwa-HRCQ',
         events: {
-            'onReady': onPlayerReady,
-            'onStateChange': null
+            'onReady': onPlayerReady
         }
     });
 }
-function onPlayerReady(event) {
-    event.target.playVideo();
+function onPlayerReady(evt) {
+    evt.target.playVideo();
 }
 
 var pause = false;
@@ -32,11 +31,11 @@ function toggleVideo() {
 }
 
 function increaseVolume() {
-    player.setVolume(player.getVolume() + 1)
+    player.setVolume(player.getVolume() + 10)
 }
 
 function decreaseVolume() {
-    player.setVolume(player.getVolume() - 1)
+    player.setVolume(player.getVolume() - 10)
 }
 
 function seekForward() {
