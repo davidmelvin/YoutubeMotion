@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Youtube Motion</title>
+    </head>
+    <script type="text/javascript">
+   
+
+        function getOption() {
+            
+
+            var searchBox = document.getElementById("inputtext");
+            var searchText = searchBox.value;
+            
+            
+            videoID = searchText.substring( searchText.indexOf("?v=") + 3, searchText.indexOf("&"));
+
+            document.getElementById("demo").innerHTML= videoID;
+
+    }
+    </script>
+
+    <div >
+        <input type="text" id = "inputtext" size="21" maxlength="120" width = "500" ><input type="submit" value=">" onclick="getOption()" >
+        <p id="demo"></p>
+    </div>
+</html>
