@@ -4,20 +4,22 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var done = false;
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
-        width: '640',
-        videoId: 'OVMuwa-HRCQ',
-        events: {
-            'onReady': onPlayerReady
-        }
+        width: '640'
     });
 }
-function onPlayerReady(evt) {
-    evt.target.playVideo();
+
+function getOption() {
+    var searchBox = document.getElementById("inputtext");
+    var searchText = searchBox.value;
+    var videoID = searchText.substring(32);
+
+    console.log(videoID)
+
+    player.loadVideoById(videoID)
 }
 
 var pause = false;
