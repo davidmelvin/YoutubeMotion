@@ -31,41 +31,50 @@ function toggleVideo() {
 }
 
 function increaseVolume() {
-    player.setVolume(player.getVolume() + 10)
+    player.setVolume(player.getVolume() + 5)
 }
 
 function decreaseVolume() {
-    player.setVolume(player.getVolume() - 10)
+    player.setVolume(player.getVolume() - 5)
 }
 
 function seekForward() {
-    player.seekTo(player.getCurrentTime() + (0.05 * player.getDuration()), true)
+    var newTime = player.getCurrentTime() + (0.02 * player.getDuration());
+    if (newTime < player.getDuration())
+        player.seekTo(newTime, true)
+    else
+        player.nextVideo()
 }
 
 function seekBackward() {
-    player.seekTo(player.getCurrentTime() - (0.05 * player.getDuration()), true)
+    var newTime = player.getCurrentTime() - (0.02 * player.getDuration());
+    if (newTime >= 0)
+        player.seekTo(newTime, true)
+    else
+        player.previousVideo()
 }
 
-var controller = Leap.loop({enableGestures: true}, function(frame){
-});
 
-controller.on("gesture", function(gesture){
-    if (gesture.type == "keyTap")
-        toggleVideo();
-    else if (gesture.type == "swipe"){
-        var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
-        //Classify as right-left or up-down
-        if(isHorizontal){
-            if(gesture.direction[0] > 0){
-                seekForward();
-            } else {
-                seekBackward();
-            }
-        } else { //vertical
-            if(gesture.direction[1] > 0){
-                increaseVolume();
-            } else {
-                decreaseVolume();
+var controller = Leap.loop({enableGestures: true}, function(frame){
+    if (frame.valid && frame.gestures.length > 0) {
+        var gesture = frame.gestures[0]
+        if (gesture.type == "keyTap")
+            toggleVideo();
+        else if (gesture.type == "swipe"){
+            var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
+            //Classify as right-left or up-down
+            if(isHorizontal){
+                if(gesture.direction[0] > 0){
+                    seekForward();
+                } else {
+                    seekBackward();
+                }
+            } else { //vertical
+                if(gesture.direction[1] > 0){
+                    increaseVolume();
+                } else {
+                    decreaseVolume();
+                }
             }
         }
     }
